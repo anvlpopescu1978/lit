@@ -27,7 +27,9 @@
   <!-- sharepoint script and style -->
   <SharePoint:StartScript runat="server"/>
   <SharePoint:CssLink Version="15" runat="server"/>
-  <SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="false" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="sp.js" OnDemand="false" Localizable="false" runat="server"/>
+
   <SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" Localizable="false" runat="server"/>
   <SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" Localizable="false" runat="server"/>
   <SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" Localizable="false" runat="server"/>
