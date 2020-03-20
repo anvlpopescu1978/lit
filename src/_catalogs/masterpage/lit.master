@@ -1,0 +1,149 @@
+<%@Master language="C#"%>
+<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>
+<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<SharePoint:SPHtmlTag dir="<%$Resources:wss,multipages_direction_dir_value%>" ID="SPHtmlTag" runat="server">
+<head runat="server">
+  <meta name="GENERATOR" content="Microsoft SharePoint"/>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <SharePoint:IECompatibleMetaTag runat="server"/>
+  <meta http-equiv="Expires" content="0"/>
+  <SharePoint:RobotsMetaTag runat="server"/>
+
+  <!-- page title -->
+  <SharePoint:PageTitle runat="server">
+    <asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">
+      <SharePoint:ProjectProperty Property="Title" runat="server"/>
+    </asp:ContentPlaceHolder>
+  </SharePoint:PageTitle>
+
+  <!-- icons -->
+  <SharePoint:SPPinnedSiteTile TileUrl="/_layouts/15/images/SharePointMetroAppTile.png" TileColor="#0072C6" runat="server"/>
+  <SharePoint:SPShortcutIcon IconUrl="/_layouts/15/images/favicon.ico?rev=23" runat="server"/>
+
+  <!-- sharepoint script and style -->
+  <SharePoint:StartScript runat="server"/>
+  <SharePoint:CssLink Version="15" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" Localizable="false" runat="server"/>
+  <SharePoint:CustomJSUrl runat="server"/>
+  <SharePoint:SoapDiscoveryLink runat="server"/>
+  <asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" Visible="true" runat="server"/>
+  <SharePoint:CssRegistration Name="Themable/corev15.css" runat="server"/>
+
+  <!-- additional page head -->
+  <asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server"/>
+  <SharePoint:DelegateControl ControlId="AdditionalPageHead" AllowMultipleControls="true" runat="server"/>
+
+</head>
+<body>
+
+  <SharePoint:ImageLink runat="server"/>
+  <SharePoint:SPNoScript runat="server"/>
+  <SharePoint:SPClientIDGenerator ServerControlID="DeltaPlaceHolderMain;DeltaPlaceHolderPageTitleInTitleArea;DeltaPlaceHolderUtilityContent" runat="server"/>
+
+  <!-- form -->
+  <SharePoint:SharePointForm onsubmit="if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;}" runat="server">
+
+    <script type="text/javascript"> var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } }; </script>
+    <SharePoint:AjaxDelta id="DeltaSPWebPartManager" runat="server">
+      <WebPartPages:SPWebPartManager runat="Server"/>
+    </SharePoint:AjaxDelta>
+    <asp:ScriptManager id="ScriptManager" EnablePageMethods="false" EnablePartialRendering="true" EnableScriptGlobalization="false" EnableScriptLocalization="true" runat="server"/>
+    <SharePoint:AjaxDelta id="DeltaDelegateControls" runat="server">
+      <SharePoint:DelegateControl ControlId="GlobalNavigation" runat="server"/>
+      <SharePoint:DelegateControl ControlId="GlobalSiteLink3" Scope="Farm" Visible="false" runat="server"/>
+    </SharePoint:AjaxDelta>
+
+    <!-- workspace -->
+    <div id="s4-workspace" class="ms-core-overlay">
+      <div id="s4-bodyContainer">
+
+        <!-- notifications and page status -->
+        <div id="notificationArea" class="ms-notif-box"></div>
+        <div id="pageStatusBar"></div>
+
+        <!-- body -->
+        <section class="body">
+
+          <!-- main -->
+          <main class="main" role="main">
+
+            <!-- main content -->
+            <div class="main-content">
+              <a id="mainContent" name="mainContent" tabindex="-1"></a>
+              <asp:ContentPlaceHolder id="PlaceHolderMain" runat="server"/>
+            </div>
+
+          </main>
+          <!-- /main -->
+
+        </section>
+        <!-- /body -->
+
+        <SharePoint:AjaxDelta id="DeltaFormDigest" BlockElement="true" runat="server">
+          <asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server">
+            <SharePoint:FormDigest runat="server"/>
+          </asp:ContentPlaceHolder>
+        </SharePoint:AjaxDelta>
+
+        <asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderHorizontalNav" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderPageImage" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTitleLeftBorder" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderMiniConsole" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTitleRightMargin" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTitleAreaSeparator" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderNavSpacer" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderLeftNavBarBorder" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderBodyRightMargin" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTitleAreaClass" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderGlobalNavigation" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderGlobalNavigationSiteMap" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="WSSDesignConsole" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTitleBreadcrumb" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderPageDescription" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderTopNavBar" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderLeftActions" runat="server" Visible="false"/>
+        <asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" runat="server" Visible="false"/>
+
+      </div>
+    </div>
+    <!-- /workspace -->
+
+    <%@ Register TagPrefix="wssuc" TagName="HelpPanel" src="~/_controltemplates/15/HelpPanel.ascx" %>
+    <SharePoint:AjaxDelta id="DeltaHelpPanel" runat="server">
+      <div id = "helppanelCntdiv" class="ms-Help-PanelContainer">
+        <wssuc:HelpPanel runat="server"/>
+      </div>
+    </SharePoint:AjaxDelta>
+    <SharePoint:AjaxDelta id="DeltaPageInstrumentation" runat="server">
+      <SharePoint:FlightedContent runat="server" ExpFeature="UserActivityLogging" RenderIfInFlight="true">
+        <SharePoint:PageInstrumentationControl runat="server" Id="PageInstrumentationControl"/>
+      </SharePoint:FlightedContent>
+    </SharePoint:AjaxDelta>
+
+  </SharePoint:SharePointForm>
+  <!-- /form -->
+
+  <SharePoint:AjaxDelta id="DeltaPlaceHolderUtilityContent" runat="server">
+    <asp:ContentPlaceHolder id="PlaceHolderUtilityContent" runat="server"/>
+  </SharePoint:AjaxDelta>
+  <SharePoint:ScriptBlock runat="server">var g_Workspace = "s4-workspace";</SharePoint:ScriptBlock>
+
+</body>
+</SharePoint:SPHtmlTag>

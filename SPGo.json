@@ -1,0 +1,21 @@
+{
+    "sourceDirectory": "src",
+    "sharePointSiteUrl": "https://litutorialservices.sharepoint.com/sites/system",
+    "workspaceRoot": "c:\\Users\\popescan\\Desktop\\LIT\\lit",
+    "publishWorkspaceOptions": {
+        "destinationFolder": "/",
+        "globPattern": "c:\\Users\\popescan\\Desktop\\LIT\\lit\\src\\**\\*.*",
+        "localRoot": "c:\\Users\\popescan\\Desktop\\LIT\\lit\\src"
+    },
+    "storeCredentials": true,
+    "remoteFolders": [
+        "/SiteAssets/**/*.*",
+        "/_catalogs/wp/",
+        "/_catalogs/masterpage/",
+        "/SitePages/**/*.*",
+        "/Scripts/**/*.*",
+        "/Content/**/*.*"
+    ],
+    "publishingScope": "None",
+    "authenticationType": "Digest"
+}
